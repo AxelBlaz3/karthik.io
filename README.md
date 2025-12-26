@@ -1,43 +1,73 @@
-# Astro Starter Kit: Minimal
+# karthik.io (Technical Dossier)
 
-```sh
-npm create astro@latest -- --template minimal
-```
+![Astro](https://img.shields.io/badge/Astro-5.0-BC52EE?style=flat&logo=astro)
+![Tailwind](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=flat&logo=tailwind-css)
+![TypeScript](https://img.shields.io/badge/TypeScript-Strict-3178C6?style=flat&logo=typescript)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+> **"Void Main"**: The entry point to my professional life.
 
-## 🚀 Project Structure
+A high-performance, dark-themed developer portfolio built to showcase mobile architecture, systems programming, and agentic AI projects. Designed with a "Cosmic Minimalist" aesthetic using the **Island Architecture** pattern for zero-javascript defaults.
 
-Inside of your Astro project, you'll see the following folders and files:
+![Portfolio Preview](./public/preview.png)
+
+## ⚡ Features
+
+- **Island Architecture:** Zero client-side JavaScript by default, hydrating only interactive components.
+- **Bento Grid Layout:** Modular, responsive grid system for showcasing technical projects.
+- **Cosmic Theme:** Custom Tailwind v4 color palette (`astro-900`, `accent-primary`) with CSS-native gradients.
+- **Infinite Marquee:** CSS-only horizontal scrolling tech stack using glassmorphism capsules.
+- **Type-Safe Content:** Data schemas defined via TypeScript interfaces.
+
+## 🛠️ Tech Stack
+
+- **Core:** [Astro 5.0](https://astro.build)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com) (configured via CSS variables)
+- **Scripting:** TypeScript
+- **Components:** React 19 (for stateful UI elements)
+- **Typography:** Inter (UI) & JetBrains Mono (Code)
+- **Icons:** Lucide React / SVG
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm or pnpm
+
+### Installation
+
+1. **Clone the repository**
+
+    ```bash
+    git clone [https://github.com/AxelBlaz3/karthik.io.git](https://github.com/AxelBlaz3/karthik.io.git)
+    cd karthik.io
+    ```
+
+2. **Install dependencies**
+
+    ```bash
+    npm install
+    ```
+
+3. **Run the development server**
+
+    ```bash
+    npm run dev
+    ```
+
+    Access the site at `http://localhost:4321`.
+
+## 📂 Project Structure
 
 ```text
 /
-├── public/
+├── public/             # Static assets (images, fonts)
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+│   ├── components/     # Reusable UI (Navbar, BentoItem, etc.)
+│   ├── layouts/        # Page wrappers (Layout.astro)
+│   ├── pages/          # Route definitions (index, about, projects)
+│   ├── styles/         # Global CSS & Tailwind @theme config
+│   └── env.d.ts        # TypeScript declarations
+├── astro.config.mjs    # Astro configuration
+└── package.json        # Dependencies
