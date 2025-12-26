@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BentoItem from '../components/BentoItem.astro';
+---
+
+<Layout title="Karthik | Mobile & Systems Engineer">
+  <main class="relative overflow-hidden pb-32">
+    
+    <div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] 
+                bg-accent-primary/20 blur-[120px] rounded-full -z-10 pointer-events-none mix-blend-screen">
+    </div>
+
+    <section class="min-h-[80vh] flex flex-col justify-center items-center text-center px-4 pt-10">
+      
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-astro-700 bg-astro-800/80 backdrop-blur-sm mb-8 shadow-sm">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        <span class="text-xs font-mono font-medium text-slate-300 tracking-wide">AVAILABLE FOR HIRE</span>
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1] text-white">
+        Engineering the <br class="hidden md:block" />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent-primary to-accent-secondary">
+          mobile experience.
+        </span>
+      </h1>
+
+      <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl leading-relaxed">
+        Full Stack Mobile Developer specializing in <span class="text-slate-200">Flutter</span>, <span class="text-slate-200">Native Android</span>, and System-Level performance.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+        <a href="/projects" class="px-8 py-3.5 rounded-lg bg-white text-astro-900 font-bold hover:bg-slate-200 transition-colors duration-200 flex items-center justify-center gap-2">
+          View Projects
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        
+        <a href="https://github.com/AxelBlaz3" target="_blank" class="px-8 py-3.5 rounded-lg bg-astro-800/50 border border-astro-700 text-white font-semibold hover:bg-astro-800 hover:border-astro-600 transition-all duration-200 backdrop-blur-sm">
+          GitHub Profile
+        </a>
+      </div>
+    </section>
+
+<div class="w-full border-y border-astro-800 bg-astro-900/50 backdrop-blur-sm py-8 overflow-hidden relative group">
+        
+        <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-astro-900 to-transparent z-10"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-astro-900 to-transparent z-10"></div>
+
+        <div class="flex gap-4 animate-scroll hover:pause w-max">
+            {[...Array(2)].map(() => (
+                <>
+                  {/* Languages */}
+                  <span class="tech-tag">Flutter</span>
+                  <span class="tech-tag">Dart</span>
+                  <span class="tech-tag">Kotlin</span>
+                  <span class="tech-tag">Swift</span>
+                  <span class="tech-tag">C</span>
+                  <span class="tech-tag">Python</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">JavaScript</span>
+                  <span class="tech-tag">HTML</span>
+                  
+                  {/* Frameworks & Libs */}
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">React Native</span>
+                  <span class="tech-tag">Jetpack Compose</span>
+                  <span class="tech-tag">Express</span>
+                  
+                  {/* Infrastructure & Tools */}
+                  <span class="tech-tag">Firebase</span>
+                  <span class="tech-tag">MQTT</span>
+                  <span class="tech-tag">Git</span>
+                  <span class="tech-tag">JFrog</span>
+                  <span class="tech-tag">GitLab CI</span>
+                </>
+            ))}
+        </div>
+    </div>
+
+    <section class="max-w-6xl mx-auto px-6 pt-24">
+      <div class="flex items-end justify-between mb-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-white">Featured Work</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[minmax(250px,auto)] mb-12">
+        <BentoItem 
+          span="md:col-span-2" 
+          title="Irdeto: Keystone" 
+          description="Full-lifecycle ownership of a secure digital key SDK. Architected the JNI/Swift bridge for cryptographic operations AND engineered the automated release pipeline (GitLab CI → JFrog)."
+          icon="🔐" 
+          tags={['Flutter', 'JNI / C', 'GitLab CI', 'JFrog']}
+          href="https://irdeto.com/smart-mobility/keystone-digital-key"
+        />
+
+        <BentoItem 
+          title="Keystone RN SDK"
+          description="Wrapped the Flutter SDK for React Native usage via 'Flutter-as-a-Module'. Built the Kotlin/Obj-C translation layer."
+          icon="📦" 
+          tags={['Flutter Module', 'React Native']}
+        />
+        
+        <BentoItem 
+          span="md:col-span-1"
+          title="Hing: Social Recipes"
+          description="Scalable social platform. Flutter frontend + Python/Flask backend with HLS video streaming."
+          icon="🍳"
+          tags={['Flutter', 'Python Flask', 'FFMPEG']}
+        />
+      </div>
+
+      <div class="flex justify-center">
+        <a href="/projects" class="px-8 py-3 rounded-full border border-astro-700 bg-astro-800/50 hover:bg-astro-800 hover:border-accent-primary transition-all text-slate-300 font-medium">
+            View Complete Projects &rarr;
+        </a>
+      </div>
+    </section>
+
+  </main>
+</Layout>

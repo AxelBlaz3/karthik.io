@@ -1,0 +1,35 @@
+---
+const links = [
+  { text: 'Home', href: '/' },
+  { text: 'Projects', href: '/projects' },
+  { text: 'About', href: '/about' },
+  { text: 'Contact', href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-astro-900/80 backdrop-blur-md">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/" class="font-bold text-xl tracking-tight text-white hover:text-accent-primary transition-colors">
+      karthik<span class="text-accent-primary">.io</span>
+    </a>
+
+    <ul class="flex gap-6 md:gap-8">
+      {links.map((link) => (
+        <li>
+          <a 
+            href={link.href} 
+            class={`text-sm font-medium transition-colors ${
+              currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
+                ? 'text-accent-primary' 
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            {link.text}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>

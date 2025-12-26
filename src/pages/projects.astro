@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BentoItem from '../components/BentoItem.astro';
+---
+
+<Layout title="Projects | Karthik">
+  <main class="max-w-6xl mx-auto px-6 py-12 md:py-20">
+    <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white">Technical <span class="text-accent-primary">Projects</span></h1>
+    <p class="text-slate-400 max-w-2xl mb-12 text-lg">
+      A collection of professional SDKs, mobile applications, and system-level experiments.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[minmax(250px,auto)]">
+        
+        <BentoItem 
+          span="md:col-span-2" 
+          title="Irdeto: Keystone" 
+          description="Full-lifecycle ownership of a secure digital key SDK. Architected the JNI/Swift bridge for cryptographic operations AND engineered the automated release pipeline (GitLab CI → JFrog)."
+          icon="🔐" 
+          tags={['Flutter', 'JNI / C', 'GitLab CI', 'JFrog', 'BLE']}
+          href="https://irdeto.com/smart-mobility/keystone-digital-key"
+        />
+
+        <BentoItem 
+          title="Keystone RN SDK"
+          description="Wrapped the Flutter SDK for React Native usage via 'Flutter-as-a-Module'. Built the Kotlin/Obj-C translation layer."
+          icon="📦" 
+          tags={['Flutter Module', 'React Native', 'Kotlin']}
+        />
+
+        <BentoItem 
+          span="md:col-span-2"
+          title="Hing: Social Recipes"
+          description="A scalable social platform for sharing recipes. Built with a Flutter frontend and Python/Flask backend, featuring HLS video streaming (FFMPEG)."
+          icon="🍳"
+          tags={['Flutter', 'Python Flask', 'FFMPEG', 'HLS']}
+          href="https://github.com/AxelBlaz3/Hing"
+        />
+
+        <BentoItem 
+          title="Modern Notes"
+          description="Production-grade Android app featuring Clean Architecture, Jetpack Compose, and offline-first Room storage."
+          icon="📝"
+          tags={['Kotlin', 'Compose', 'Room']}
+          href="https://github.com/AxelBlaz3/Notes"
+        />
+
+        <BentoItem 
+            title="Systems & Kernel"
+            description="Low-level contributions including the Codex Kernel (C) and PixysOS Updater. Exploring hardware boundaries."
+            icon="⚙️"
+            tags={['C', 'Linux Kernel', 'Android ROMs']}
+            href="https://github.com/AxelBlaz3/Codex-Kernel"
+        />
+
+        <BentoItem 
+            title="Phishing AI"
+            description="LSTM Neural Network for detecting malicious URLs with 96% accuracy."
+            icon="🛡️"
+            tags={['Python', 'TensorFlow', 'LSTM']}
+        />
+        
+        <BentoItem 
+            title="Local Compute"
+            description="Optimizing local LLM inference on Ryzen 9 9900X. Pushing the limits of consumer AI hardware."
+            icon="🖥️"
+            tags={['Hardware', 'Local LLMs', 'Linux']}
+        />
+    </div>
+  </main>
+</Layout>

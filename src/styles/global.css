@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* Define your custom theme directly here */
+@theme {
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* The "Deep Space" Palette */
+  --color-astro-900: #0B0F19; /* Main background */
+  --color-astro-800: #111520; /* Card background */
+  --color-astro-700: #1E2330; /* Borders */
+  
+  /* The "Glow" Accents */
+  --color-accent-primary: #FF5D01;   /* Orange */
+  --color-accent-secondary: #8B5CF6; /* Purple */
+  --color-accent-blue: #3b82f6;      /* Blue */
+
+  /* Gradients */
+  --image-space-gradient: radial-gradient(circle at 50% 0%, #1e2330 0%, #0b0f19 75%);
+}
+
+/* Import fonts */
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/800.css";
+@import "@fontsource/jetbrains-mono";
+
+/* Base Styles */
+@layer base {
+    html {
+    @apply bg-astro-900 text-slate-300;
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    }
+
+    body {
+    @apply antialiased selection:bg-accent-primary/30 selection:text-white;
+    -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+    @apply text-white font-bold tracking-tight;
+    }
+
+    code {
+    font-family: var(--font-mono);
+    }
+
+    /* Define the Capsule Style */
+    .tech-tag {
+        @apply px-4 py-2 rounded-full border border-astro-700 bg-astro-800/50 text-slate-300 font-mono text-sm whitespace-nowrap transition-colors hover:border-accent-primary/50 hover:text-white hover:bg-astro-700;
+    }
+
+    /* The Animation */
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+
+    .animate-scroll {
+        animation: scroll 40s linear infinite;
+    }
+
+    /* Optional: Pause on hover so people can read the tags */
+    .hover\:pause:hover {
+        animation-play-state: paused;
+    }
+}
+
+/* Utilities */
+@utility glow-border {
+  @apply relative rounded-xl border border-astro-700 bg-astro-800/50 backdrop-blur-sm transition-all hover:border-astro-700 hover:shadow-[0_0_20px_-5px_rgba(255,93,1,0.1)];
+}
