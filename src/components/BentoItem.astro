@@ -13,7 +13,7 @@ const { title, description, icon, span = "col-span-1", tags = [], href = "#" } =
 ---
 
 <a href={href} class={`
-  group relative overflow-hidden rounded-xl bg-astro-800/50 border border-astro-700 
+  group relative overflow-hidden rounded-4xl bg-astro-800/50 border border-astro-700 
   hover:border-accent-primary/50 transition-all duration-300 hover:shadow-[0_0_30px_-10px_rgba(255,93,1,0.2)]
   flex flex-col p-6 h-full ${span}
 `}>
@@ -37,7 +37,7 @@ const { title, description, icon, span = "col-span-1", tags = [], href = "#" } =
 
     <div class="flex flex-wrap gap-2 mt-auto">
       {tags.map((tag) => (
-        <span class="text-xs font-mono px-2 py-1 rounded bg-astro-900/80 border border-astro-700/50 text-slate-400 group-hover:text-accent-primary group-hover:border-accent-primary/30 transition-colors">
+        <span class="text-xs font-mono px-2 py-1 rounded-4xl bg-astro-900/80 border border-astro-700/50 text-slate-400 group-hover:text-accent-primary group-hover:border-accent-primary/30 transition-colors">
           {tag}
         </span>
       ))}

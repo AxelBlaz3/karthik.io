@@ -1,0 +1,132 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("blog");
+    return posts.map((entry) => ({
+        params: { slug: entry.slug },
+        props: { entry },
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout title={`${entry.data.title} | Karthik`}>
+    <main class="max-w-3xl mx-auto px-6 py-20">
+        <a href="/blog" class="text-accent-primary hover:underline mb-8 block"
+            >&larr; Back to writing</a
+        >
+
+        <article>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">
+                {entry.data.title}
+            </h1>
+            <div
+                class="flex gap-4 text-slate-500 text-sm mb-12 font-mono border-b border-astro-800 pb-8"
+            >
+                <time datetime={entry.data.pubDate.toISOString()}>
+                    {
+                        entry.data.pubDate.toLocaleDateString("en-US", {
+                            dateStyle: "long",
+                        })
+                    }
+                </time>
+                <span>•</span>
+                <span>{entry.data.tags?.join(", ")}</span>
+            </div>
+
+            <div class="blog-content text-slate-300 leading-relaxed text-lg">
+                <Content />
+            </div>
+        </article>
+    </main>
+</Layout>
+
+<style is:global>
+    /* Force styling for Markdown content 
+    because Tailwind resets everything by default.
+  */
+
+    /* 1. Add space between paragraphs */
+    .blog-content p {
+        margin-bottom: 1.5rem;
+    }
+
+    /* 2. Style Headings */
+    .blog-content h2 {
+        color: white;
+        font-size: 1.875rem; /* 30px */
+        font-weight: 700;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .blog-content h3 {
+        color: white;
+        font-size: 1.5rem; /* 24px */
+        font-weight: 600;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    /* 3. FIX THE LISTS (The missing numbers/bullets) */
+    .blog-content ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .blog-content ol {
+        list-style-type: decimal;
+        padding-left: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .blog-content li {
+        margin-bottom: 0.5rem;
+        padding-left: 0.5rem;
+    }
+
+    /* 4. Style Code Blocks */
+    .blog-content pre {
+        background-color: #0b0f19; /* dark bg */
+        border: 1px solid #1e293b; /* border-astro-700 */
+        padding: 1rem;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+        margin-bottom: 1.5rem;
+    }
+
+    .blog-content code {
+        font-family: "JetBrains Mono", monospace;
+        color: #a78bfa; /* accent-secondary */
+    }
+
+    /* Inline code styling */
+    .blog-content p code {
+        background-color: rgba(30, 41, 59, 0.5);
+        padding: 0.2rem 0.4rem;
+        border-radius: 0.25rem;
+    }
+
+    /* Add this to your existing <style is:global> block */
+
+    .blog-content a {
+        color: #ff5d01; /* Your accent-primary (orange) */
+        text-decoration: none;
+        transition: opacity 0.2s;
+    }
+
+    .blog-content a:hover {
+        text-decoration: underline;
+        opacity: 0.8;
+    }
+
+    /* Specifically target links inside list items to ensure the Index is colored */
+    .blog-content li a {
+        color: #ff5d01;
+    }
+</style>
